@@ -43,6 +43,7 @@
     var hrs={0:[540,990],3:[540,1080],4:[540,1080],5:[540,1080],6:[540,1080]};
     var s=d.getElementById('status'), h=hrs[day];
     if(h && mins>=h[0] && mins<h[1]) s.innerHTML='<b>Open now</b>, closes '+(day===0?'4:30 PM':'6 PM')+' (listed hours)';
-    else s.textContent='Closed right now (listed hours). Call or message to book ahead.';
+    else if(h && mins<h[0]) s.innerHTML='Closed now, <b>opens today at 9 AM</b> (listed hours)';
+    else s.textContent='Closed right now (listed hours). Message on Instagram to book ahead.';
   }catch(e){}
 })();
